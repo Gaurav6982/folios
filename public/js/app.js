@@ -93430,16 +93430,15 @@ var SignUp = /*#__PURE__*/function (_Component) {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/register", {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/user/register", {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password
       }).then(function (response) {
-        console.log(response.data);
-        localStorage.setItem('token', response.data.access_token);
-        console.log(response);
-        window.location.href = "/build";
-        console.log(response.data);
+        // console.log(response.data);
+        // localStorage.setItem('token',response.data.access_token);
+        // console.log(response);
+        window.location.href = "/home"; // console.log(response.data);
       })["catch"](function (err) {
         console.log(err); // this.setState({error: err.response.data.error.email[0]})
       });

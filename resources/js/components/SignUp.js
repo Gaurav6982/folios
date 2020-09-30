@@ -75,18 +75,18 @@ export class SignUp extends Component {
         event.preventDefault();
 
         axios
-            .post("/api/register", {
+            .post("/user/register", {
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password
             })
 
             .then(function(response) {
-                console.log(response.data);
-                localStorage.setItem('token',response.data.access_token);
-                console.log(response);
-                window.location.href = "/build";
-                console.log(response.data);
+                // console.log(response.data);
+                // localStorage.setItem('token',response.data.access_token);
+                // console.log(response);
+                window.location.href = "/home";
+                // console.log(response.data);
             })
 
             .catch((err)=> {

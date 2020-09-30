@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['prefix'=>'user'],function(){
     Route::post('login','NAuthContro@logina');
+    Route::post('register','NAuthContro@registera');
 });
 Route::middleware('auth')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
