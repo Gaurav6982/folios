@@ -23,7 +23,8 @@ export class SignUp extends Component {
                 email: false,
                 password: false
             },
-		error:''
+        error:'',
+        token:'',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -70,7 +71,12 @@ export class SignUp extends Component {
             [name]: value
         });
     }
-
+    async componentDidMount() {
+        const url = "/token";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({token: data._token});
+      }
     handleSubmit(event) {
         event.preventDefault();
 
@@ -78,7 +84,8 @@ export class SignUp extends Component {
             .post("/user/register", {
                 name: this.state.name,
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                _token:this.state.token,
             })
 
             .then(function(response) {
@@ -140,6 +147,7 @@ export class SignUp extends Component {
                             onBlur={this.handleBlur("email")}
                             onChange={this.handleInputChange}
                         />
+                        <Input type="hidden" name="_token" value={this.state.token}/>
                         <FormFeedback> {errors.email} </FormFeedback>
                     </Col>
                 </FormGroup>

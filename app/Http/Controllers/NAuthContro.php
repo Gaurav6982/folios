@@ -103,4 +103,7 @@ class NAuthContro extends Controller
         $user=$this->create($request);
         $this->login($request);
     }
+    public function token(){
+        return response()->json(['_token'=>csrf_token()],200);
+    }
 }

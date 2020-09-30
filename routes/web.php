@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function(){
     Route::get('final','UserAllController@final');
     Route::get('details','UserAllController@details');
 });
+Route::get('/token','NAuthContro@token');
 Route::get('get-slug','UserAllController@getslug');
 Route::get('/portfolio/{slug}','UserAllController@share');
 Route::get('/details/portfolio/{slug}','UserAllController@share_details');
