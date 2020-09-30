@@ -22,7 +22,7 @@ function Build() {
     const [LinkSet2, setLinkSet2] = useState([{ linkHeading2: "", link2: "" }]);
     const [SocailLinks, setSocailLinks] = useState([{ Selected: "", link: "" },{ Selected: "", link: "" }]);
     useEffect(() => {
-        fetch("/api/token")
+        fetch("/token")
             .then(res => res.json())
             .then(res => {setOwnerState({token:res._token})})
             .catch(err => {

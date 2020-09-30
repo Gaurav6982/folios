@@ -72,7 +72,7 @@ export class SignUp extends Component {
         });
     }
     async componentDidMount() {
-        const url = "/api/token";
+        const url = "/token";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({token: data._token});

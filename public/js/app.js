@@ -89084,7 +89084,7 @@ function Build() {
       setSocailLinks = _useState8[1];
 
   useEffect(function () {
-    fetch("/api/token").then(function (res) {
+    fetch("/token").then(function (res) {
       return res.json();
     }).then(function (res) {
       setOwnerState({
@@ -93277,7 +93277,7 @@ var SignIn = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = "/api/token";
+                url = "/token";
                 _context.next = 3;
                 return fetch(url);
 
@@ -93507,7 +93507,7 @@ var SignUp = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = "/api/token";
+                url = "/token";
                 _context.next = 3;
                 return fetch(url);
 
