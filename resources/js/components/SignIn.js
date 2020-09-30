@@ -30,7 +30,7 @@ export class SignIn extends Component {
         });
     }
     async componentDidMount() {
-        const url = "/token";
+        const url = "/api/token";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({token: data._token});

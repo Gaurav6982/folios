@@ -43,6 +43,7 @@ export class Logout extends Component {
         event.preventDefault();
 
         axios.post('/logout', {
+            _token:"YYxS7UmepdDmNiLDK4FwsRmEX8ARNQhWwWyb2FUj",
         })
 
         .then(function (response) {

@@ -89084,7 +89084,7 @@ function Build() {
       setSocailLinks = _useState8[1];
 
   useEffect(function () {
-    fetch("/token").then(function (res) {
+    fetch("/api/token").then(function (res) {
       return res.json();
     }).then(function (res) {
       setOwnerState({
@@ -92167,7 +92167,9 @@ var Logout = /*#__PURE__*/function (_Component) {
     key: "logout",
     value: function logout(event) {
       event.preventDefault();
-      axios.post('/logout', {}).then(function (response) {
+      axios.post('/logout', {
+        _token: "YYxS7UmepdDmNiLDK4FwsRmEX8ARNQhWwWyb2FUj"
+      }).then(function (response) {
         // console.log(response.data);
         if (response.data = 'success') window.location.href = "/";else alert("Wrong Credentials!");
       })["catch"](function (error) {
@@ -93275,7 +93277,7 @@ var SignIn = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = "/token";
+                url = "/api/token";
                 _context.next = 3;
                 return fetch(url);
 
@@ -93505,7 +93507,7 @@ var SignUp = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = "/token";
+                url = "/api/token";
                 _context.next = 3;
                 return fetch(url);
 
