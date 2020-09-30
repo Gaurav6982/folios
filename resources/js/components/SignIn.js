@@ -11,7 +11,8 @@ export class SignIn extends Component {
         this.state = {
             email: '',
             password: '',
-	        error:''
+            error:'',
+            token:'',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,19 +29,25 @@ export class SignIn extends Component {
           [name]: value
         });
     }
-
+    async componentDidMount() {
+        const url = "/token";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({token: data._token});
+      }
     handleSubmit(event) {
         event.preventDefault();
 
         axios.post('/user/login', {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            _token:this.state.token,
         })
         .then(function (response) {
             // console.log(response.data.token.original.access_token);
             // localStorage.setItem('token',response.data.token.original.access_token);
             // login();
-            console.log(response);
+            // console.log(response);
             if(response.data.move=='build')
             window.location.href="/home";
             else if(response.data.move=='final')

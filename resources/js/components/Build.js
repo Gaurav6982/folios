@@ -10,7 +10,8 @@ function Build() {
         setname2:'',
         Imagevalue: 'img',
         Resumevalue: '',
-        Resumelink: ''
+        Resumelink: '',
+        token:'',
     });
     const handleOwnerChange = (e) => setOwnerState({
       ...ownerState,
@@ -20,7 +21,14 @@ function Build() {
     const [LinkSet1, setLinkSet1] = useState([{ linkHeading1: "", link1: "" }]);
     const [LinkSet2, setLinkSet2] = useState([{ linkHeading2: "", link2: "" }]);
     const [SocailLinks, setSocailLinks] = useState([{ Selected: "", link: "" },{ Selected: "", link: "" }]);
-
+    useEffect(() => {
+        fetch("/token")
+            .then(res => res.json())
+            .then(res => {setOwnerState({token:res._token})})
+            .catch(err => {
+                console.log(err.message);
+            })
+    }, []);
     const handleSubmit=(event)=> {
         event.preventDefault();
         var formData = new FormData(event.target);
