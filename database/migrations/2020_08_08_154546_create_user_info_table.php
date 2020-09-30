@@ -18,8 +18,8 @@ class CreateUserInfoTable extends Migration
             $table->integer('user_id');
             $table->text('display_name');
             $table->mediumText('description');
-            $table->mediumText('profile_picture');
-            $table->mediumText('resume');
+            $table->mediumText('profile_picture')->nullable();
+            $table->mediumText('resume')->nullable();
             $table->mediumText('link_set1_name');
             $table->mediumText('link_set2_name');
             $table->timestamps();
