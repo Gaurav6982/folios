@@ -57,6 +57,22 @@ class NAuthContro extends Controller
         }
     }
     public function logina(Request $request){
+        $data = [];
+        //Validate input
+        $customMessages = [
+            'email.required' => 'The email is required.',
+            'password.min' => 'The password must be atleast 8 digits.',
+        ];
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required'
+        ],$customMessages);
+
+        //If validation fails
+        if($validator->fails())
+        {
+            return response()->json(['error'=>$validator->errors()],400);
+        }
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -66,7 +82,7 @@ class NAuthContro extends Controller
             else
             return response()->json(['success'=>true,'move'=>'build'],200);
         }
-        return response()->json(['success',false],400);
+        return response()->json(['error'=>'Combination Does not Exist'],400);
         
     }
     /**
@@ -99,6 +115,22 @@ class NAuthContro extends Controller
         ]);
     }
     public function registera(Request $request){
+        $customMessages = [
+            'password.min'=>'The Password must be minimum 8 digits.',
+            'email.required' => 'The email is required.',
+            'email.unique' => 'The email is already registered.',
+        ];
+        $validator = Validator::make($request->all(),[
+            'name' => 'string|required',
+            'email' => 'email|unique:users,email|nullable',
+            'password' => 'required|min:8'
+        ],$customMessages);
+
+        //If validation fails
+        if($validator->fails())
+        {
+            return response()->json(['error'=>$validator->errors()],400);
+        }
         $this->validator($request);
         $user=$this->create($request);
         $this->login($request);

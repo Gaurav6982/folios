@@ -97,8 +97,8 @@ export class SignUp extends Component {
             })
 
             .catch((err)=> {
-                console.log(err);
-                // this.setState({error: err.response.data.error.email[0]})
+                // console.log(err);
+                this.setState({error: err.response.data.error.email[0]})
             });
     }
 

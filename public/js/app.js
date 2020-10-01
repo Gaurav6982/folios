@@ -93538,6 +93538,8 @@ var SignUp = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
+      var _this2 = this;
+
       event.preventDefault();
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("/user/register", {
         name: this.state.name,
@@ -93550,7 +93552,10 @@ var SignUp = /*#__PURE__*/function (_Component) {
         // console.log(response);
         window.location.href = "/home"; // console.log(response.data);
       })["catch"](function (err) {
-        console.log(err); // this.setState({error: err.response.data.error.email[0]})
+        // console.log(err);
+        _this2.setState({
+          error: err.response.data.error.email[0]
+        });
       });
     }
   }, {
