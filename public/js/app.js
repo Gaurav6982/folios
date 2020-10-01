@@ -89083,7 +89083,7 @@ function Build() {
       SocailLinks = _useState8[0],
       setSocailLinks = _useState8[1];
 
-  useEffect(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetch("/token").then(function (res) {
       return res.json();
     }).then(function (res) {
@@ -92167,8 +92167,7 @@ var Logout = /*#__PURE__*/function (_Component) {
     key: "logout",
     value: function logout(event) {
       event.preventDefault();
-      axios.post('/logout', {
-        _token: "YYxS7UmepdDmNiLDK4FwsRmEX8ARNQhWwWyb2FUj"
+      axios.post('/logout', {// _token:"YYxS7UmepdDmNiLDK4FwsRmEX8ARNQhWwWyb2FUj",
       }).then(function (response) {
         // console.log(response.data);
         if (response.data = 'success') window.location.href = "/";else alert("Wrong Credentials!");
