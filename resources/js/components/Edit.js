@@ -77,8 +77,13 @@ function Edit() {
                 }
                 else if(res.social_links.length==4){
                     setSocailLinks([{ Selected: res.social_links[0].link_name, link: res.social_links[0].link_url },{ Selected: res.social_links[1].link_name, link: res.social_links[1].link_url },{ Selected: res.social_links[2].link_name, link: res.social_links[2].link_url },{ Selected: res.social_links[3].link_name, link: res.social_links[3].link_url }])
-                };
-
+                }
+                else if(res.social_links.length==5){
+                    setSocailLinks([{ Selected: res.social_links[0].link_name, link: res.social_links[0].link_url },{ Selected: res.social_links[1].link_name, link: res.social_links[1].link_url },{ Selected: res.social_links[2].link_name, link: res.social_links[2].link_url },{ Selected: res.social_links[3].link_name, link: res.social_links[3].link_url },{ Selected: res.social_links[4].link_name, link: res.social_links[4].link_url }])
+                }
+                else if(res.social_links.length==6){
+                    setSocailLinks([{ Selected: res.social_links[0].link_name, link: res.social_links[0].link_url },{ Selected: res.social_links[1].link_name, link: res.social_links[1].link_url },{ Selected: res.social_links[2].link_name, link: res.social_links[2].link_url },{ Selected: res.social_links[3].link_name, link: res.social_links[3].link_url },{ Selected: res.social_links[4].link_name, link: res.social_links[4].link_url },{ Selected: res.social_links[5].link_name, link: res.social_links[5].link_url }])
+                }
             })
             .catch(err => {
                 console.log(err.message);
@@ -139,9 +144,8 @@ function Edit() {
         }
         r.send(d)   
       }
-      
-
-      // handle input change
+    
+    // handle input change
     const handleInputChange1 = event => {
         const list = [...LinkSet1];
         list[event.target.dataset.idx][event.target.dataset.txt] = event.target.value;
@@ -412,17 +416,19 @@ function Edit() {
                             <div key={`SocailLinks-${i}`}>
                             <Label style={{fontSize:'16px',color:'#404040'}} style={{float:'left'}} md={4}>
                                 <select className="form-control" name={Selected} className="form-control" data-idx={i} data-txt="Selected" id={Selected} value={SocailLinks[i].Selected} onChange={handleInputChange3}>
-                                    <option value="Behance">Behance</option>
-                                    <option value="LinkedIn">LinkedIn</option>
+                                <option value="LinkedIn">LinkedIn</option>
                                     <option value="Github">Github</option>
                                     <option value="Twitter">Twitter</option>
+                                    <option value="Behance">Behance</option>
+                                    <option value="Dribble">Dribble</option>
+                                    <option value="Instagram">Instagram</option>
                                 </select>
                             </Label>
                             <Col md={8}><Input className="form-control" name={link} data-idx={i} id={link} data-txt="link" value={SocailLinks[i].link} onChange={handleInputChange3} type="text"/></Col>
 
                             <hr/>
                             <div className="btn-box">
-                                {SocailLinks.length - 1 === i&&SocailLinks.length <4 && <span><img src="assets/images/Group 102.png" style={{height:'40px',width:'auto',cursor: 'pointer',margin:'5px'}} onClick={handleAddClick3}/> <b>Add another Link</b></span>}
+                                {SocailLinks.length - 1 === i&&SocailLinks.length <6 && <span><img src="assets/images/Group 102.png" style={{height:'40px',width:'auto',cursor: 'pointer',margin:'5px'}} onClick={handleAddClick3}/> <b>Add another Link</b></span>}
                                 {i!==0 && SocailLinks.length - 1 === i && <a style={{float:'right'}} className="mr10" onClick={() => handleRemoveClick3(i)}><i className="fa fa-minus-circle my-float"></i></a>}
                             </div>
                             </div>
