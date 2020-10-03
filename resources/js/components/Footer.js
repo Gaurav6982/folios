@@ -12,6 +12,7 @@ export class Footer extends Component {
                         <a href="https://github.com/DSC-JSS-NOIDA"><img src="assets/images/Mask Group(3).svg" style={{width:'25px',height:'25px',margin:'5px'}}/></a>
                         <a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://m.youtube.com/channel/UCkELk5JFDceaSf8pBa19kDQ&ved=2ahUKEwjCqJuhmJTsAhVQ6nMBHayRAssQjjgwAHoECAEQAQ&usg=AOvVaw0m_sGZWcJOlhOF640lN-as"><img src="assets/images/yt.svg" style={{width:'25px',height:'25px',margin:'5px'}}/></a>
                         <a href="https://mobile.twitter.com/dscjssaten"><img src="assets/images/twitter.svg" style={{width:'25px',height:'25px',margin:'5px'}}/></a>
+                        <a></a>
                     </div>
                 </div>
                 <div className="row">
