@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { Button,Form,FormGroup, Input, Col, Label } from 'reactstrap';
-import {DATA} from '../data.js';
+// import {DATA} from '../data.js';
 import axios from 'axios';
 
 import ReactDOM from 'react-dom';

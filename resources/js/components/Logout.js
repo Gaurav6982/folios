@@ -11,8 +11,7 @@ export class Logout extends Component {
         // this.toggleNav = this.toggleNav.bind(this);
         this.state = {
           isNavOpen: false,
-        //   isSignInModalOpen: false,
-        //   isSignUpModalOpen: false
+            token:'',
         };
         this.toggleNav = this.toggleNav.bind(this);
         // this.toggleModalSignIn = this.toggleModalSignIn.bind(this);
@@ -27,23 +26,17 @@ export class Logout extends Component {
           isNavOpen: !this.state.isNavOpen
        });
     }
-
-    // toggleModalSignUp(){
-    //     this.setState({
-    //         isSignUpModalOpen: !this.state.isSignUpModalOpen
-    //     });
-    // }
-
-    // toggleModalSignIn(){
-    //   this.setState({
-    //     isSignInModalOpen: !this.state.isSignInModalOpen
-    //   });
-    // }
+    async componentDidMount() {
+        const url = "/token";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({token: data._token});
+      }
     logout(event){
         event.preventDefault();
 
         axios.post('/logout', {
-            // _token:"YYxS7UmepdDmNiLDK4FwsRmEX8ARNQhWwWyb2FUj",
+            _token:this.state.token,
         })
 
         .then(function (response) {

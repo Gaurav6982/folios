@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LinkSet1 from './LinkSet1.js';
 import SocialMediaLinks from './SocialMediaLinks.js';
 import LinkSet2 from './LinkSet2.js';
-import {DATA} from '../data.js';
+// import {DATA} from '../data.js';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Modal, ModalHeader, ModalBody} from 'reactstrap';
 import Share from './Share';
