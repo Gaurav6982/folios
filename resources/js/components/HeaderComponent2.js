@@ -3,22 +3,8 @@ import { Navbar, NavbarBrand, Nav,NavItem,Button } from 'reactstrap';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 export class HeaderComponent2 extends Component {
-
-    constructor(props){
-        super(props);
     
-        this.state = {
-          Url: ''
-        };
-      }
-    
-    async componentWillMount() {
-        const url = "/get-slug";
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({Url: `${window.location.hostname}/portfolio/${data.key}`});
-      }
-    
+  
     render() {
         return (
             <BrowserRouter>
@@ -31,7 +17,7 @@ export class HeaderComponent2 extends Component {
                         </NavbarBrand>
                         <Nav navbar className="ml-auto" style={{float:'right',color:'#000000'}}>
                             <NavItem className="nav-items">
-                                <NavLink color="dark" className="nav-link" to={this.state.Url}>Profile</NavLink>
+                                <NavLink color="dark" className="nav-link" to={window.location.hostname+'/final'}>Profile</NavLink>
                             </NavItem>
                             <NavItem className="nav-items">
                                 <Button className="btn btn-primary" >Logout</Button>
