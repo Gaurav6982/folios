@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import LinkSet1 from './LinkSet1.js';
 import SocialMediaLinks from './SocialMediaLinks.js';
-import LinkSet2 from './LinkSet2.js';
 import ReactDOM from 'react-dom';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 export class Portfolio extends Component {
@@ -28,11 +26,13 @@ export class Portfolio extends Component {
   const response = await fetch(url);
   const data = await response.json();
   this.setState({ person: data, loading: false });
+
+  
 }
   
     render() {
         if (this.state.loading) {
-          return <div>loading...</div>;
+          return <div><center><img src="assets/images/loading.gif" alt="Loading..."/></center></div>;
         }
         const linkset1 = this.state.person.set1_links.map((linkset)=> {
           return (

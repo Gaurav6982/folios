@@ -229,7 +229,6 @@ function Edit() {
         });
     }
     
-
         return (
         <div className="container">
             <Form onSubmit={handleSubmit}>
@@ -434,9 +433,6 @@ function Edit() {
                             </div>
                         );
                         })}
-
-
-                    
                 </div>
             </div>
             </div>

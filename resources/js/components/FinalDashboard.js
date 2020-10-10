@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import LinkSet1 from './LinkSet1.js';
 import SocialMediaLinks from './SocialMediaLinks.js';
-import LinkSet2 from './LinkSet2.js';
-import {DATA} from '../data.js';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Modal, ModalHeader, ModalBody} from 'reactstrap';
 import Share from './Share';
@@ -38,14 +35,13 @@ export class FinalDashboard extends Component {
     const url = "/details";
     const response = await fetch(url);
     const data = await response.json();
- //    const data = DATA;
     this.setState({ person: data, loading: false });
   }
  
   
     render() {
         if (this.state.loading) {
-          return <div>loading...</div>;
+          return <div><center><img src="assets/images/loading.gif" alt="Loading..."/></center></div>;
         }
         const linkset1 = this.state.person.set1_links.map((linkset)=> {
           return (
@@ -119,7 +115,7 @@ export class FinalDashboard extends Component {
                 <Modal isOpen={this.state.isShareModalOpen} toggle={this.toggleModalShare}>
                     <ModalHeader toggle={this.toggleModalShare}>Share your Portfolio</ModalHeader>
                     <ModalBody>
-                        <Share slug={this.props.slug}/>
+                        <Share/>
                     </ModalBody>
                 </Modal>
 
