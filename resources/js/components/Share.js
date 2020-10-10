@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -64,18 +63,14 @@ export class Share extends Component {
     };
   }
 
-
   async componentWillMount() {
       const url = "/get-slug";
       const response = await fetch(url);
       const data = await response.json();
-      
       this.setState({shareUrl: `${window.location.hostname}/portfolio/${data.key}`});
-      
     }
 
     render() {
-      console.log(this.props.slug);
         return (
                 <div className="row" style={{padding:'20px'}}>
                   <FacebookShareButton

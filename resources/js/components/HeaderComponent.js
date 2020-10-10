@@ -63,10 +63,10 @@ export class HeaderComponent extends Component {
                                 <a href="#howtouse" className="nav-link"  to='/menu'> How to Use</a>
                             </NavItem>
                             <NavItem className="nav-items">
-                                <Button type="button" className="btn buttons" onClick={this.toggleModalSignIn} style={{width:'120px', height:'auto',color:'#ffffff',fontSize:'15px'}} >Sign In</Button>
+                                <Button type="button" className="btn buttons btn-round btn-sm" onClick={this.toggleModalSignIn} style={{color:'#ffffff',fontSize:'15px'}} >Sign In</Button>
                             </NavItem>
                             <NavItem className="nav-items">
-                                <Button type="button" className="btn buttons" onClick={this.toggleModalSignUp} style={{width:'120px', height:'auto',color:'#ffffff',fontSize:'15px'}} >Sign Up</Button>
+                                <Button type="button" className="btn buttons btn-round btn-sm" onClick={this.toggleModalSignUp} style={{color:'#ffffff',fontSize:'15px'}} >Sign Up</Button>
                             </NavItem>
                             </Nav>
                         </Collapse>
